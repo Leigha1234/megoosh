@@ -1585,6 +1585,45 @@
             line-height: 1.8;
         }
 
+        /* =========================================================
+   PAGE BACK BUTTON
+========================================================= */
+
+.page-back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 28px;
+
+    padding: 10px 16px;
+
+    border: 1px solid var(--line);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .72);
+    color: var(--ink);
+
+    font-size: .82rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.page-back-button:hover {
+    background: var(--ink);
+    color: #ffffff;
+    border-color: var(--ink);
+
+    transform: translateX(-2px);
+}
 
         /* =========================================================
            FOOTER
@@ -1849,6 +1888,139 @@
                 width: min(calc(100% - 32px), var(--container));
             }
 
+            body {
+    font-size: 15px;
+}
+
+.logo-mark-img {
+    height: 34px;
+}
+
+.hero-copy {
+    min-height: 500px;
+    padding: 46px 22px;
+}
+
+.hero-title {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+}
+
+.hero-intro {
+    margin-top: 24px;
+    font-size: .95rem;
+    line-height: 1.65;
+}
+
+.hero-actions {
+    margin-top: 26px;
+    gap: 12px;
+}
+
+.button {
+    min-height: 48px;
+    padding: 0 20px;
+    font-size: .84rem;
+}
+
+.intro {
+    padding: 78px 0;
+}
+
+.intro-main h2,
+.audience-heading h2,
+.promise-copy h2 {
+    font-size: clamp(2.7rem, 12vw, 4.6rem);
+}
+
+.audience-section,
+.promise-section {
+    padding-top: 78px;
+    padding-bottom: 78px;
+}
+
+.audience-content {
+    padding: 24px;
+}
+
+.audience-content h3 {
+    font-size: 2rem;
+}
+
+.waitlist-section {
+    padding-bottom: 78px;
+}
+
+.waitlist-copy {
+    padding: 48px 22px;
+}
+
+.waitlist-copy h2 {
+    font-size: clamp(2.9rem, 13vw, 4.8rem);
+}
+
+.waitlist-copy > p {
+    margin-top: 18px;
+    font-size: .94rem;
+    line-height: 1.65;
+}
+
+.waitlist-form {
+    margin-top: 26px;
+    padding: 5px;
+    border-radius: 18px;
+    gap: 4px;
+}
+
+.waitlist-form input {
+    min-height: 48px;
+    padding: 0 15px;
+    font-size: .88rem;
+}
+
+.waitlist-form button[type="submit"] {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 18px;
+    font-size: .8rem;
+}
+
+.waitlist-image {
+    min-height: 380px;
+}
+
+.inner-page {
+    padding: 118px 0 72px;
+}
+
+.inner-header {
+    margin-bottom: 38px;
+}
+
+.inner-header h1 {
+    font-size: clamp(3rem, 14vw, 5rem);
+}
+
+.inner-header p {
+    font-size: .95rem;
+}
+
+.contact-form-wrap {
+    padding: 30px 22px;
+}
+
+.legal-shell {
+    padding: 30px 22px;
+    border-radius: 28px;
+}
+
+.legal-shell h1 {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+}
+
+.legal-section {
+    padding: 24px 0;
+}
+
             .nav-wrap {
                 padding: 12px;
             }
@@ -1918,15 +2090,6 @@
                 border-radius: 32px;
             }
 
-            .hero-copy {
-                min-height: 560px;
-                padding: 64px 28px;
-            }
-
-            .hero-title {
-                font-size: clamp(4rem, 18vw, 6.3rem);
-            }
-
             .hero-image {
                 min-height: 520px;
             }
@@ -1994,19 +2157,11 @@
                 padding-bottom: 100px;
             }
 
-            .waitlist-section {
-                padding-bottom: 100px;
-            }
-
             .waitlist-form {
                 border-radius: 24px;
                 padding: 7px;
 
                 flex-direction: column;
-            }
-
-            .waitlist-form input {
-                min-height: 55px;
             }
 
             .waitlist-form button {
@@ -2034,6 +2189,50 @@
 
 
         @media (max-width: 560px) {
+.container {
+    width: min(calc(100% - 24px), var(--container));
+}
+
+.logo-mark-img {
+    height: 36px;
+}
+
+.navbar {
+    padding: 7px 7px 7px 14px;
+}
+
+.hero-copy {
+    min-height: 460px;
+    padding: 42px 20px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 15vw, 4.4rem);
+}
+
+.hero-image {
+    min-height: 400px;
+}
+
+.audience-card {
+    min-height: 430px;
+}
+
+.promise-image {
+    min-height: 410px;
+}
+
+.waitlist-copy {
+    padding: 42px 20px;
+}
+
+.waitlist-copy h2 {
+    font-size: clamp(2.7rem, 14vw, 4.1rem);
+}
+
+.waitlist-image {
+    min-height: 330px;
+}
 
             .logo {
                 font-size: 1.08rem;
@@ -2044,21 +2243,10 @@
                 height: 31px;
             }
 
-            .hero-copy {
-                min-height: 530px;
-            }
-
-            .hero-title {
-                font-size: clamp(3.75rem, 17vw, 5rem);
-            }
-
+           
             .hero-actions {
                 align-items: flex-start;
                 flex-direction: column;
-            }
-
-            .hero-image {
-                min-height: 460px;
             }
 
             .collage-stack {
@@ -2067,14 +2255,6 @@
 
             .collage-small {
                 min-height: 370px;
-            }
-
-            .audience-card {
-                min-height: 480px;
-            }
-
-            .promise-image {
-                min-height: 460px;
             }
 
             .promise-badge {
@@ -2142,10 +2322,11 @@
 
 
         /* ---------- megoosh brand additions ---------- */
-        .logo-mark-img {
-            height: 26px;
-            width: auto;
-        }
+.logo-mark-img {
+    height: 32px;
+    width: auto;
+    flex-shrink: 0;
+}
         .tagline-line {
             margin-top: 6px;
             color: var(--muted);
@@ -2169,86 +2350,72 @@
             margin-bottom: 4px;
         }
 
-        /* =========================================================
+   /* =========================================================
    WAITLIST BUTTON
 ========================================================= */
 
 .waitlist-form button[type="submit"] {
     appearance: none;
-    border: 1px solid #1a1a1a;
-    background: #1a1a1a;
+
+    min-height: 48px;
+    padding: 0 22px;
+
+    border: 0;
+    border-radius: 999px;
+
+    background: var(--ink);
     color: #ffffff;
 
-    padding: 14px 24px;
-    min-height: 50px;
+    font-family: var(--font-body);
+    font-size: .82rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
 
-    border-radius: 100px;
-
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-
-    cursor: pointer;
+    white-space: nowrap;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 
-    white-space: nowrap;
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 24px rgba(26, 26, 26, .16);
 
     transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.2s ease,
-        box-shadow 0.25s ease;
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
 }
 
-
-/* Hover */
 .waitlist-form button[type="submit"]:hover {
-    background: transparent;
-    color: #1a1a1a;
+    background: var(--cream);
+    color: var(--orange);
 
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 12px 28px rgba(26, 26, 26, .14);
 }
 
-
-/* Click */
 .waitlist-form button[type="submit"]:active {
     transform: translateY(0);
-    box-shadow: none;
 }
 
-
-/* Keyboard accessibility */
 .waitlist-form button[type="submit"]:focus-visible {
-    outline: 2px solid #1a1a1a;
+    outline: 2px solid #ffffff;
     outline-offset: 3px;
 }
 
-
-/* While Formspree is submitting */
 .waitlist-form button[type="submit"]:disabled {
-    opacity: 0.55;
+    opacity: .6;
     cursor: wait;
     transform: none;
     box-shadow: none;
 }
-
-
-/* Mobile */
-@media (max-width: 600px) {
-
-    .waitlist-form button[type="submit"] {
-        width: 100%;
-        min-height: 52px;
-    }
-}
-
     </style>
 </head>
 
@@ -3136,7 +3303,14 @@
             <div class="container">
 
                 <div class="legal-shell">
-
+<a
+    href="#"
+    class="page-back-button"
+    onclick="switchPage('home'); return false;"
+    aria-label="Back to home"
+>
+    ← back to home
+</a>
                     <div class="eyebrow">
                         the sensible stuff
                     </div>

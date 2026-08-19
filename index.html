@@ -2168,6 +2168,86 @@
             font-size: 1rem;
             margin-bottom: 4px;
         }
+
+        /* =========================================================
+   WAITLIST BUTTON
+========================================================= */
+
+.waitlist-form button[type="submit"] {
+    appearance: none;
+    border: 1px solid #1a1a1a;
+    background: #1a1a1a;
+    color: #ffffff;
+
+    padding: 14px 24px;
+    min-height: 50px;
+
+    border-radius: 100px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Hover */
+.waitlist-form button[type="submit"]:hover {
+    background: transparent;
+    color: #1a1a1a;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Click */
+.waitlist-form button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+
+/* Keyboard accessibility */
+.waitlist-form button[type="submit"]:focus-visible {
+    outline: 2px solid #1a1a1a;
+    outline-offset: 3px;
+}
+
+
+/* While Formspree is submitting */
+.waitlist-form button[type="submit"]:disabled {
+    opacity: 0.55;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .waitlist-form button[type="submit"] {
+        width: 100%;
+        min-height: 52px;
+    }
+}
     </style>
 </head>
 

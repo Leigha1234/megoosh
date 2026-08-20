@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>megoosh — Love eating again.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,600&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6F0;
+    --ink:#171512;
+    --ink-soft:#5A544C;
+    --orange:#FF5A1F;
+    --orange-deep:#D8430E;
+    --cream-line:#E7DFD3;
+    --card:#FFFFFF;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--orange);color:#fff;}
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,246,240,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--cream-line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;
+    max-width:1080px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:1.4rem;
+    letter-spacing:-0.02em;
+    display:flex;align-items:baseline;gap:2px;
+  }
+  .logo .dot{color:var(--orange);}
+  .nav-tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border:1px solid var(--cream-line);
+    padding:6px 12px;
+    border-radius:100px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 32px 64px;
+    max-width:1080px;margin:0 auto;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--orange-deep);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:28px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:7px;height:7px;
+    background:var(--orange);
+    border-radius:50%;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;transform:scale(1);}
+    50%{opacity:0.4;transform:scale(0.7);}
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:clamp(2.8rem, 7vw, 5.6rem);
+    line-height:0.98;
+    letter-spacing:-0.03em;
+    max-width:15ch;
+  }
+  h1 .accent{color:var(--orange);}
+  .hero-sub{
+    margin-top:28px;
+    font-size:clamp(1.05rem,1.6vw,1.3rem);
+    color:var(--ink-soft);
+    max-width:46ch;
+    line-height:1.55;
+  }
+  .hero-sub b{color:var(--ink);font-weight:700;}
+
+  /* ---------- FRIDGE SIGNATURE ---------- */
+  .fridge-scene{
+    margin-top:64px;
+    display:flex;
+    justify-content:center;
+  }
+  .fridge{
+    width:min(100%, 640px);
+    background:linear-gradient(180deg,#fff, #F2ECE2);
+    border:1.5px solid var(--cream-line);
+    border-radius:22px;
+    padding:36px 40px;
+    position:relative;
+    box-shadow:0 30px 60px -30px rgba(23,21,18,0.18);
+  }
+  .fridge::before{
+    content:'';
+    position:absolute;
+    left:22px;top:22px;bottom:22px;
+    width:5px;
+    background:var(--cream-line);
+    border-radius:3px;
+  }
+  .fridge-note{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+    opacity:0.7;
+  }
+  .fridge-question{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(1.3rem,3vw,1.9rem);
+    color:var(--ink);
+    line-height:1.35;
+  }
+  .magnets{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .magnet{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:0.82rem;
+    font-weight:500;
+    padding:8px 16px;
+    border-radius:100px;
+    background:var(--card);
+    border:1px solid var(--cream-line);
+    color:var(--ink-soft);
+  }
+  .magnet.hot{
+    background:var(--orange);
+    color:#fff;
+    border-color:var(--orange);
+    font-weight:700;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding:64px 32px;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .divider{
+    max-width:1080px;
+    margin:0 auto;
+    border:none;
+    border-top:1px solid var(--cream-line);
+  }
+  .section-label{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--orange-deep);
+    margin-bottom:18px;
+  }
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  .two-col p{
+    font-size:1.06rem;
+    line-height:1.75;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .two-col p i{
+    color:var(--ink);
+    font-style:italic;
+  }
+  .two-col strong{color:var(--ink);}
+
+  /* ---------- QUOTE ---------- */
+  .quote-block{
+    padding:100px 32px;
+    text-align:center;
+    position:relative;
+  }
+  .quote-block::before,
+  .quote-block::after{
+    content:'';
+    position:absolute;
+    left:50%;
+    width:1px;
+    height:56px;
+    background:var(--cream-line);
+    transform:translateX(-50%);
+  }
+  .quote-block::before{top:12px;}
+  .quote-block::after{bottom:12px;}
+  .quote-block h2{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-style:italic;
+    color:var(--orange);
+    font-size:clamp(2.4rem, 6vw, 4.6rem);
+    letter-spacing:-0.02em;
+    line-height:1.05;
+  }
+  .quote-block p{
+    margin-top:20px;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- FOUNDER ---------- */
+  .founder-card{
+    background:var(--card);
+    border:1px solid var(--cream-line);
+    border-radius:24px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:28px;
+    align-items:center;
+  }
+  .avatar{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:var(--orange);
+    color:#fff;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.5rem;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .founder-card h3{
+    font-family:'Fraunces', serif;
+    font-size:1.5rem;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .founder-card p{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  .founder-tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--orange-deep);
+  }
+
+  /* ---------- CONNECT ---------- */
+  .connect{
+    text-align:center;
+    padding-top:20px;
+  }
+  .connect h2{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:clamp(1.9rem,4vw,2.8rem);
+    letter-spacing:-0.02em;
+    max-width:20ch;
+    margin:0 auto 18px;
+  }
+  .connect p{
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0 auto 36px;
+    line-height:1.65;
+    font-size:1.02rem;
+  }
+  .tag-row{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:40px;
+  }
+  .tag-row span{
+    font-size:0.85rem;
+    padding:9px 18px;
+    border:1px solid var(--cream-line);
+    border-radius:100px;
+    color:var(--ink-soft);
+  }
+  .cta-row{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:0.98rem;
+    padding:16px 30px;
+    border-radius:100px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary{
+    background:var(--orange);
+    color:#fff;
+    box-shadow:0 12px 24px -10px rgba(255,90,31,0.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-primary:focus-visible, .btn-ghost:focus-visible{
+    outline:3px solid var(--ink);
+    outline-offset:3px;
+  }
+  .btn-ghost{
+    border:1.5px solid var(--ink);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--cream-line);
+    padding:40px 32px 48px;
+  }
+  .footer-inner{
+    max-width:1080px;margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:16px;
+  }
+  .footer-inner .logo{font-size:1.05rem;}
+  .footer-links{
+    display:flex;gap:22px;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+  }
+  .footer-links a:hover{color:var(--orange-deep);}
+  .footer-status{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--orange-deep);
+  }
+
+  @media (max-width:720px){
+    .two-col{grid-template-columns:1fr;gap:8px;}
+    .founder-card{grid-template-columns:1fr;text-align:center;justify-items:center;}
+    .quote-block{padding:70px 24px;}
+    .hero{padding:56px 24px 40px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">megoosh<span class="dot">.</span></div>
+    <div class="nav-tag">Launching soon</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="eyebrow">Beta stage · Scottish food tech</div>
+  <h1>Love eating<br>again<span class="accent">.</span></h1>
+  <p class="hero-sub">
+    For years, I've worked with people through <b>TESTme Health</b> who are trying to understand which foods might be causing their symptoms. Testing is the easy bit — knowing what to actually do with the results is an entirely different problem.
+  </p>
+
+  <div class="fridge-scene">
+    <div class="fridge">
+      <div class="fridge-note">You go home with a list of foods to avoid, open the fridge, and think —</div>
+      <div class="fridge-question">"Right. What do I actually eat now?"</div>
+      <div class="magnets">
+        <span class="magnet">new breakfast</span>
+        <span class="magnet hot">lasagne, adapted</span>
+        <span class="magnet">packed lunch</span>
+        <span class="magnet">Tuesday night, sorted</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">Why megoosh</div>
+  <div class="two-col">
+    <p>megoosh is a new Scottish food tech brand designed to take the drama and confusion out of changing how you eat. <strong>Because real life isn't Pinterest.</strong></p>
+    <p>It's Tuesday night and you just need to get dinner sorted. It's figuring out your new breakfast, what to take to work, whether lasagne is still on the menu, or how to adapt it so it is.</p>
+  </div>
+</section>
+
+<div class="quote-block">
+  <h2>&ldquo;What's for tea?&rdquo;</h2>
+  <p>The only question we want you asking</p>
+</div>
+
+<section>
+  <div class="section-label">From the founder</div>
+  <div class="founder-card">
+    <div class="avatar">I</div>
+    <div>
+      <h3>Iona</h3>
+      <p>Founder, megoosh — Love Eating Again.</p>
+      <p class="founder-tag" style="margin-top:8px;">Building in public · Beta stage</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="connect">
+  <div class="section-label" style="justify-content:center;display:flex;">Let's connect</div>
+  <h2>Building something new in Scottish food &amp; tech?</h2>
+  <p>We're heading towards our first megoosh launch and starting to build the community around it. I'd love to connect with other Scottish founders, marketers and creatives — particularly anyone working in food, tech, consumer behaviour or early-stage brands.</p>
+  <div class="tag-row">
+    <span>Food</span>
+    <span>Tech</span>
+    <span>Consumer behaviour</span>
+    <span>Early-stage brands</span>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://megoosh.com" target="_blank" rel="noopener">Visit megoosh.com →</a>
+    <a class="btn btn-ghost" href="https://twitter.com/lovemegoosh" target="_blank" rel="noopener">@lovemegoosh</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo">megoosh<span class="dot">.</span></div>
+    <div class="footer-links">
+      <a href="https://megoosh.com" target="_blank" rel="noopener">megoosh.com</a>
+      <a href="https://twitter.com/lovemegoosh" target="_blank" rel="noopener">@lovemegoosh</a>
+    </div>
+    <div class="footer-status">Launching soon</div>
+  </div>
+</footer>
+
+</body>
+</html>
